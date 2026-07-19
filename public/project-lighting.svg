@@ -1,0 +1,28 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="600" y1="0" x2="600" y2="800">
+      <stop stop-color="#102D42"/>
+      <stop offset=".7" stop-color="#314E60"/>
+      <stop offset="1" stop-color="#0A1822"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#sky)"/>
+  <circle cx="930" cy="155" r="90" fill="#F7C875"/>
+  <path d="M0 520C280 470 410 530 660 490C850 460 1020 480 1200 440V800H0V520Z" fill="#0A1C28"/>
+  <path d="M370 800L555 455H645L850 800H370Z" fill="#182B37"/>
+  <path d="M586 470V800" stroke="#F3F0D8" stroke-width="8" stroke-dasharray="34 32" opacity=".75"/>
+  <g stroke="#101820" stroke-width="12">
+    <path d="M235 620V300"/>
+    <path d="M235 300H340"/>
+    <path d="M820 625V290"/>
+    <path d="M820 290H920"/>
+  </g>
+  <g fill="#F28B22">
+    <ellipse cx="340" cy="312" rx="30" ry="12"/>
+    <ellipse cx="920" cy="302" rx="30" ry="12"/>
+  </g>
+  <g fill="#FFD88A" opacity=".22">
+    <path d="M300 325L380 325L455 610H225L300 325Z"/>
+    <path d="M880 315L960 315L1040 610H805L880 315Z"/>
+  </g>
+</svg>

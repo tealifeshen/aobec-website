@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #06131f;
+  --orange: #f28b22;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--navy);
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.site-container {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.section-shell { padding: 110px 0; }
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.section-kicker {
+  margin: 0;
+  color: var(--orange);
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  margin: 18px 0 0;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  font-weight: 900;
+}
+
+.section-copy {
+  margin: 0;
+  color: #60717e;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.hero-premium {
+  background-image:
+    linear-gradient(90deg, rgba(3,12,21,.88) 0%, rgba(3,12,21,.74) 36%, rgba(3,12,21,.22) 70%, rgba(3,12,21,.18) 100%),
+    linear-gradient(180deg, rgba(3,12,21,.12) 0%, rgba(3,12,21,.12) 56%, rgba(3,12,21,.88) 100%),
+    url("/images/hero.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hero-noise {
+  background-image: url("/noise.svg");
+  background-repeat: repeat;
+}
+
+.premium-button {
+  background: linear-gradient(135deg, #f28b22 0%, #ff9f3d 100%);
+  box-shadow: 0 12px 34px rgba(242,139,34,.22), inset 0 1px 0 rgba(255,255,255,.22);
+  transition: transform .3s ease, box-shadow .3s ease, filter .3s ease;
+}
+
+.premium-button:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.06);
+  box-shadow: 0 18px 42px rgba(242,139,34,.32), inset 0 1px 0 rgba(255,255,255,.26);
+}
+
+.glass-button {
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(14px);
+  transition: transform .3s ease, background .3s ease, border-color .3s ease;
+}
+
+.glass-button:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,.11);
+  border-color: rgba(255,255,255,.28);
+}
+
+.solution-card, .project-card, .process-card {
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+
+.solution-card:hover, .project-card:hover, .process-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(242,139,34,.28);
+  box-shadow: 0 24px 70px rgba(7,21,35,.1);
+}
+
+.hero-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: heroReveal .9s cubic-bezier(.22,.8,.2,1) forwards;
+}
+
+.hero-delay-1 { animation-delay: .08s; }
+.hero-delay-2 { animation-delay: .18s; }
+.hero-delay-3 { animation-delay: .32s; }
+.hero-delay-4 { animation-delay: .44s; }
+.hero-delay-5 { animation-delay: .56s; }
+.hero-delay-6 { animation-delay: .72s; }
+
+@keyframes heroReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mouse-indicator {
+  width: 24px;
+  height: 38px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.mouse-indicator span {
+  width: 3px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.7);
+  animation: mouseMove 1.6s ease-in-out infinite;
+}
+
+@keyframes mouseMove {
+  0%,100% { transform: translateY(0); opacity: .4; }
+  50% { transform: translateY(9px); opacity: 1; }
+}
+
+.global-map {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,.08)),
+    radial-gradient(circle at 30% 30%, rgba(34,101,137,.08), transparent 38%);
+}
+
+.cta-panel {
+  background:
+    linear-gradient(135deg, rgba(16,42,62,.98), rgba(7,21,35,.98)),
+    radial-gradient(circle at 78% 20%, rgba(242,139,34,.15), transparent 30%);
+}
+
+@media (max-width: 900px) {
+  .section-heading { display: block; }
+  .section-copy { margin-top: 24px; }
+}
+
+@media (max-width: 640px) {
+  .site-container { width: min(100% - 28px, 1180px); }
+  .section-shell { padding: 78px 0; }
+  .hero-premium { background-position: 63% center; }
+}

@@ -1,0 +1,7 @@
+<svg width="250" height="72" viewBox="0 0 250 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="34" cy="34" r="26" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.22)"/>
+  <path d="M18 39H30L36 28L42 43L47 35H54" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="48" cy="10" r="7" fill="#F28B22"/>
+  <text x="72" y="36" fill="white" font-size="27" font-family="Arial, Helvetica, sans-serif" font-weight="900" letter-spacing="5">AOBEC</text>
+  <text x="73" y="55" fill="rgba(255,255,255,.52)" font-size="9" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="3">GLOBAL ENERGY</text>
+</svg>
