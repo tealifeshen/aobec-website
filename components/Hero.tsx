@@ -55,13 +55,56 @@ export default function Hero() {
             >
               Explore Solutions
             </a>
-            <a
-  href="/energy/assessment"
-  className="premium-button inline-flex min-h-14 items-center justify-center"
+            <div className="relative">
+
+<span
+  className="
+    absolute
+    -top-3
+    left-1/2
+    -translate-x-1/2
+    bg-blue-600
+    text-white
+    text-xs
+    px-3
+    py-1
+    rounded-full
+    font-bold
+    shadow-lg
+  "
 >
-  AI Solar Assessment
-  <span className="ml-3 text-lg">→</span>
+  NEW
+</span>
+
+<a
+  href="/energy/assessment"
+  className="
+    inline-flex
+    items-center
+    justify-center
+    rounded-full
+    border
+    border-blue-500
+    px-10
+    py-5
+    text-white
+    text-2xl
+    font-bold
+    bg-[#111827]
+    shadow-[0_0_25px_rgba(59,130,246,0.6)]
+    hover:scale-105
+    transition
+  "
+>
+  ✨ AI Solar Assessment
+  <span className="ml-4 text-2xl">→</span>
 </a>
+
+<p className="mt-4 text-center text-sky-400 text-sm">
+  AI-powered. Free. Get your personalized solar + storage solution.
+</p>
+
+</div>
           </div>
         </div>
 
