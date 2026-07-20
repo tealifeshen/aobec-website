@@ -438,7 +438,7 @@ Payback:
             border
             border-slate-400
             rounded-xl
-            p-4
+            p-4 text-gray-900
             "
 
           />
@@ -459,7 +459,7 @@ Payback:
             border
             border-slate-400
             rounded-xl
-            p-4
+            p-4 text-gray-900
             "
 
           />
@@ -480,7 +480,7 @@ Payback:
             border
             border-slate-400
             rounded-xl
-            p-4
+            p-4 text-gray-900
             "
 
           />
