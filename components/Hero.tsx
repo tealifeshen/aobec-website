@@ -55,6 +55,13 @@ export default function Hero() {
             >
               Explore Solutions
             </a>
+            <a
+  href="/energy/assessment"
+  className="premium-button inline-flex min-h-14 items-center justify-center"
+>
+  AI Solar Assessment
+  <span className="ml-3 text-lg">→</span>
+</a>
           </div>
         </div>
 
