@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { getRecommendation } from "@/lib/energyRecommendation";
+
 
 export default function EnergyStep8({
 
@@ -14,7 +16,16 @@ export default function EnergyStep8({
   backupRequirement,
 
 }: any) {
+  const recommendation = getRecommendation({
 
+    projectType,
+    consumption,
+    electricityCost,
+    outage,
+    solarSpace,
+    backupRequirement,
+
+  });
 
   const [name,setName] = useState("");
 
@@ -129,13 +140,13 @@ ${backupRequirement}
 
 `
 Solar PV:
-8 kWp
+{recommendation.solar}
 
 Battery:
-15 kWh LiFePO4
+{recommendation.battery}
 
 Hybrid Inverter:
-8 kW
+{recommendation.inverter}
 
 Estimated Saving:
 $150/month
@@ -321,10 +332,10 @@ Payback:
 
 
             <p>
-              🔋 Backup Requirement:
-              <br/>
-              <b>{backupRequirement || "Not selected"}</b>
-            </p>
+  🔋 Backup Requirement:
+  <br/>
+  <b>{backupRequirement || "Standard Backup"}</b>
+</p>
 
 
           </div>
@@ -357,7 +368,7 @@ Payback:
 <br/>
 
 <b className="text-slate-900 font-bold">
-8 kWp
+{recommendation.solar}
 </b>
 
 </p>
@@ -368,7 +379,7 @@ Payback:
   🔋 Battery Storage:
   <br/>
   <b className="text-slate-900 font-bold">
-    15 kWh LiFePO4
+  {recommendation.battery}
   </b>
 </p>
 
@@ -378,7 +389,7 @@ Payback:
   ⚡ Hybrid Inverter:
   <br/>
   <b className="text-slate-900 font-bold">
-    8 kW
+  {recommendation.inverter}
   </b>
 </p>
 
@@ -388,7 +399,7 @@ Payback:
   💰 Estimated Saving:
   <br/>
   <b className="text-slate-900 font-bold">
-    $150 / month
+  {recommendation.saving}
   </b>
 </p>
 
@@ -397,7 +408,7 @@ Payback:
   📈 Payback Period:
   <br/>
   <b className="text-slate-900 font-bold">
-    5 - 7 Years
+  {recommendation.payback}
   </b>
 </p>
 
@@ -412,7 +423,12 @@ Payback:
 
 
 
+      <p className="mt-8 text-sm text-slate-500 text-center">
 
+*This is an initial AI-based estimation.
+Final system design will be confirmed by AOBEC engineers after technical assessment.
+
+</p>
       <div className="mt-12 rounded-2xl border border-slate-300 p-8 text-left">
 
 
