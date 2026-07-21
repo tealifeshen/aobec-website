@@ -48,7 +48,7 @@ export default function EnergyStep3({
 
   return (
 
-    <div className="text-center">
+    <div className="text-center px-6">
 
 
       <div className="mb-10">
@@ -63,7 +63,7 @@ export default function EnergyStep3({
 
 
 
-      <h1 className="text-5xl font-bold text-slate-900">
+      <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
 
         Tell us about your energy needs
 
@@ -83,7 +83,7 @@ export default function EnergyStep3({
 
 
 
-      <div className="grid md:grid-cols-2 gap-6 mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 px-4">
 
 
         {consumptionOptions.map((item,index)=>(
@@ -134,7 +134,7 @@ export default function EnergyStep3({
 
 
 
-            <p className="mt-3 text-sm md:text-lg text-slate-600">
+            <p className="mt-3 text-base md:text-lg text-slate-600">
 
               {item.desc}
 
