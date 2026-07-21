@@ -67,7 +67,7 @@ AOBEC ENERGY AI
 </div>
 
 
-<h2 className="text-3xl font-bold text-slate-900">
+<h2 className="text-xl md:text-3xl font-bold text-slate-900">
 
 What type of project do you need?
 
@@ -87,6 +87,7 @@ Select your project application
 
 <div className="
 grid
+grid-cols-1
 md:grid-cols-2
 gap-5
 mt-8
@@ -115,7 +116,8 @@ className="
 border-2
 border-slate-200
 rounded-xl
-p-6
+p-5
+md:p-6
 text-left
 hover:border-blue-700
 hover:bg-blue-50
@@ -134,7 +136,8 @@ transition
 
 
 <div className="
-text-xl
+text-lg
+md:text-xl
 font-bold
 mt-3
 text-slate-900
@@ -146,7 +149,8 @@ text-slate-900
 
 
 <div className="
-text-sm
+text-xs
+md:text-sm
 text-slate-600
 mt-2
 ">
