@@ -11,7 +11,7 @@ export default function EnergyStep8({
   electricityCost,
   outage,
   solarSpace,
-  storageNeed,
+  backupRequirement,
 
 }: any) {
 
@@ -116,7 +116,7 @@ Solar Space:
 ${solarSpace}
 
 Backup Requirement:
-${storageNeed}
+${backupRequirement}
 `
 
     );
@@ -323,7 +323,7 @@ Payback:
             <p>
               🔋 Backup Requirement:
               <br/>
-              <b>{storageNeed || "Not selected"}</b>
+              <b>{backupRequirement || "Not selected"}</b>
             </p>
 
 
@@ -347,47 +347,59 @@ Payback:
 
 
 
-          <div className="mt-6 space-y-5 text-lg">
+          <div className="mt-6 space-y-5 text-lg text-slate-700">
 
 
-            <p>
-              ☀️ Solar PV:
-              <br/>
-              <b>8 kWp</b>
-            </p>
+          <p className="text-slate-700">
 
+☀️ Solar PV:
 
+<br/>
 
-            <p>
-              🔋 Battery Storage:
-              <br/>
-              <b>15 kWh LiFePO4</b>
-            </p>
+<b className="text-slate-900 font-bold">
+8 kWp
+</b>
 
-
-
-            <p>
-              ⚡ Hybrid Inverter:
-              <br/>
-              <b>8 kW</b>
-            </p>
+</p>
 
 
 
-            <p>
-              💰 Estimated Saving:
-              <br/>
-              <b>$150 / month</b>
-            </p>
+<p className="text-slate-700">
+  🔋 Battery Storage:
+  <br/>
+  <b className="text-slate-900 font-bold">
+    15 kWh LiFePO4
+  </b>
+</p>
 
 
 
-            <p>
-              📈 Payback Period:
-              <br/>
-              <b>5 - 7 Years</b>
-            </p>
+<p className="text-slate-700">
+  ⚡ Hybrid Inverter:
+  <br/>
+  <b className="text-slate-900 font-bold">
+    8 kW
+  </b>
+</p>
 
+
+
+<p className="text-slate-700">
+  💰 Estimated Saving:
+  <br/>
+  <b className="text-slate-900 font-bold">
+    $150 / month
+  </b>
+</p>
+
+
+<p className="text-slate-700">
+  📈 Payback Period:
+  <br/>
+  <b className="text-slate-900 font-bold">
+    5 - 7 Years
+  </b>
+</p>
 
           </div>
 
