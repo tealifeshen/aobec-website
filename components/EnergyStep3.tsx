@@ -125,7 +125,7 @@ export default function EnergyStep3({
 
 
 
-            <h2 className="text-2xl font-bold text-slate-900">
+            <h2 className="text-xl md:text-2xl font-bold text-slate-900">
 
               {item.title}
 
@@ -134,7 +134,7 @@ export default function EnergyStep3({
 
 
 
-            <p className="mt-3 text-lg text-slate-600">
+            <p className="mt-3 text-sm md:text-lg text-slate-600">
 
               {item.desc}
 
