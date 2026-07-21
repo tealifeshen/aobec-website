@@ -55,7 +55,7 @@ export default function EnergyStep6({
     <div className="min-h-screen bg-slate-100 flex items-center justify-center p-6">
 
 
-      <div className="bg-white rounded-3xl shadow-xl w-full max-w-5xl p-10">
+<div className="bg-white rounded-3xl shadow-xl w-full max-w-5xl p-5 md:p-10">
 
 
         <div className="text-center">
@@ -66,12 +66,12 @@ export default function EnergyStep6({
           </div>
 
 
-          <h1 className="text-5xl font-bold text-slate-900 mt-12">
+          <h1 className="text-3xl md:text-5xl font-bold text-slate-900 mt-8 md:mt-12">
             Do you have available solar installation space?
           </h1>
 
 
-          <p className="text-xl text-slate-600 mt-5">
+          <p className="text-base md:text-xl text-slate-600 mt-4 md:mt-5">
             Tell us about your solar potential
           </p>
 
@@ -80,7 +80,7 @@ export default function EnergyStep6({
 
 
 
-        <div className="grid grid-cols-2 gap-8 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-8 md:mt-16">
 
 
         {solarOptions.map((item)=>(
@@ -97,7 +97,7 @@ export default function EnergyStep6({
           border
           border-slate-200
           rounded-2xl
-          p-8
+          p-5 md:p-8
           hover:border-blue-500
           hover:bg-blue-50
           transition
@@ -111,12 +111,12 @@ export default function EnergyStep6({
             </div>
 
 
-            <h2 className="text-2xl font-bold text-slate-900">
+            <h2 className="text-lg md:text-2xl font-bold text-slate-900">
               {item.title}
             </h2>
 
 
-            <p className="mt-3 text-slate-600">
+            <p className="mt-3 text-sm md:text-base text-slate-600">
               {item.desc}
             </p>
 

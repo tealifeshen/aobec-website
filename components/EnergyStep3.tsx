@@ -48,7 +48,7 @@ export default function EnergyStep3({
 
   return (
 
-    <div className="text-center px-6">
+    <div className="text-center px-4 md:px-6">
 
 
       <div className="mb-10">
@@ -71,7 +71,7 @@ export default function EnergyStep3({
 
 
 
-      <p className="mt-5 text-xl text-slate-600">
+      <p className="mt-5 text-base md:text-xl text-slate-600">
 
         Select your electricity consumption profile
 
@@ -83,7 +83,7 @@ export default function EnergyStep3({
 
 
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-8 md:mt-12 px-2 md:px-4">
 
 
         {consumptionOptions.map((item,index)=>(
@@ -106,7 +106,7 @@ export default function EnergyStep3({
           text-left
           rounded-2xl
           border
-          p-8
+          p-5 md:p-8
           hover:border-blue-500
           hover:bg-blue-50
           transition
