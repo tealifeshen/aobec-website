@@ -38,30 +38,39 @@ const solutions = [
 export default function SolutionsPage() {
   return (
     <main className="solutions-page">
-      <section className="solutions-hero">
-        <div className="solutions-hero-overlay" />
+      
+  <section className="solutions-hero-new">
 
-        <div className="site-container solutions-hero-content">
-          <p className="solutions-eyebrow">
-            GLOBAL ENERGY & INDUSTRIAL SOLUTIONS
-          </p>
+  <div className="solutions-hero-new-bg" />
 
-          <h1>
-            Integrated Energy
-            <span>& Industrial Solutions</span>
-          </h1>
+  <div className="solutions-hero-new-content">
 
-          <p className="solutions-hero-copy">
-            Connecting global projects with reliable energy systems,
-            industrial capabilities and China&apos;s manufacturing network.
-          </p>
+    <p className="solutions-eyebrow">
+      GLOBAL ENERGY & INDUSTRIAL SOLUTIONS
+    </p>
 
-          <Link href="#core-solutions" className="solutions-primary-button">
-            Explore Solutions
-            <span>→</span>
-          </Link>
-        </div>
-      </section>
+    <h1>
+      Integrated Energy
+      <br />
+      <span>& Industrial Solutions</span>
+    </h1>
+
+    <p className="solutions-copy">
+      Connecting global projects with reliable energy systems,
+      industrial capabilities and China's manufacturing network.
+    </p>
+
+    <Link
+      href="#core-solutions"
+      className="solutions-button"
+    >
+      Explore Solutions
+      <span>→</span>
+    </Link>
+
+  </div>
+
+</section>
 
       <section id="core-solutions" className="solutions-intro">
         <div className="site-container">

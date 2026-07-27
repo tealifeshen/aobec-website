@@ -195,10 +195,10 @@ a { color: inherit; text-decoration: none; }
   background:
     linear-gradient(
       90deg,
-      rgba(2, 12, 22, 0.96) 0%,
-      rgba(2, 12, 22, 0.84) 35%,
-      rgba(2, 12, 22, 0.28) 70%,
-      rgba(2, 12, 22, 0.18) 100%
+      rgba(3,15,28,0.75) 0%,
+      rgba(3,15,28,0.45) 40%,
+      rgba(3,15,28,0.15) 75%,
+      rgba(3,15,28,0.05) 100%
     ),
     linear-gradient(
       180deg,
@@ -634,4 +634,137 @@ a { color: inherit; text-decoration: none; }
   .solutions-cta-actions a {
     text-align: center;
   }
+}
+/* =========================
+   NEW SOLUTIONS HERO
+========================= */
+
+.solutions-hero-new {
+  position: relative;
+  min-height: 820px;
+  overflow: hidden;
+  display:flex;
+  align-items:center;
+}
+
+
+.solutions-hero-new-bg {
+
+  position:absolute;
+  inset:0;
+
+  background-image:
+  linear-gradient(
+    90deg,
+    rgba(2,12,22,0.95) 0%,
+    rgba(2,12,22,0.65) 40%,
+    rgba(2,12,22,0.15) 75%
+  ),
+  url("/images/projects-hero.jpg");
+
+  background-size:cover;
+  background-position:center;
+
+}
+
+
+.solutions-hero-new-content {
+
+  position:relative;
+  z-index:2;
+
+  max-width:1200px;
+
+  margin:0 auto;
+
+  width:100%;
+
+  padding-top:120px;
+
+}
+
+
+.solutions-hero-new-content h1 {
+
+  margin-top:30px;
+
+  font-size:76px;
+
+  line-height:1.05;
+
+  font-weight:800;
+
+  color:white;
+
+  letter-spacing:-2px;
+
+}
+
+
+.solutions-hero-new-content h1 span {
+
+  color:rgba(255,255,255,0.72);
+
+}
+
+
+
+.solutions-eyebrow {
+
+  color:#f28b22;
+
+  font-size:14px;
+
+  letter-spacing:5px;
+
+  font-weight:700;
+
+}
+
+
+
+.solutions-copy {
+
+  max-width:650px;
+
+  margin-top:35px;
+
+  color:rgba(255,255,255,0.82);
+
+  font-size:20px;
+
+  line-height:1.7;
+
+}
+
+
+.solutions-button {
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:20px;
+
+  margin-top:45px;
+
+  padding:18px 35px;
+
+  border-radius:50px;
+
+  background:#f28b22;
+
+  color:white;
+
+  font-weight:700;
+
+  font-size:16px;
+
+}
+
+
+.solutions-button span {
+
+  font-size:20px;
+
 }
