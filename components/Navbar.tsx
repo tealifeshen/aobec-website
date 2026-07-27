@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 
 const links = [
-  { label: "Home", href: "#home" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Projects", href: "#projects" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "Projects", href: "/projects" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -30,7 +30,7 @@ export default function Navbar() {
       }`}
     >
       <div className="site-container flex items-center justify-between">
-        <a href="#home" className="group flex items-center gap-3">
+      <a href="/" className="group flex items-center gap-3">
           <img
             src="/aobec-logo.svg"
             alt="AOBEC"
@@ -57,7 +57,7 @@ export default function Navbar() {
             <span className="mx-2 text-white/20">|</span> VI
           </div>
           <a
-            href="#contact"
+            href="/contact"
             className="premium-button rounded-full px-6 py-3 text-sm font-bold text-white"
           >
             Get a Quote
@@ -91,7 +91,7 @@ export default function Navbar() {
             ))}
           </div>
           <a
-            href="#contact"
+            href="/contact"
             onClick={() => setOpen(false)}
             className="premium-button mt-4 block rounded-2xl px-5 py-3 text-center text-sm font-bold"
           >
