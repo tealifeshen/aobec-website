@@ -1,4 +1,38 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+import {
+  ENERGY_RESULT_STORAGE_KEY,
+  type EnergyAssessmentData,
+  type EnergyRecommendation,
+} from "@/lib/energyRecommendation";
+
+type StoredEnergyResult = {
+  assessment: EnergyAssessmentData;
+  recommendation: EnergyRecommendation;
+};
+
 export default function ResultPage() {
+
+    const [result, setResult] = useState<StoredEnergyResult | null>(null);
+
+    useEffect(() => {
+      try {
+        const storedResult = window.sessionStorage.getItem(
+          ENERGY_RESULT_STORAGE_KEY,
+        );
+
+        if (storedResult) {
+          setResult(JSON.parse(storedResult) as StoredEnergyResult);
+        }
+      } catch {
+        setResult(null);
+      }
+    }, []);
+
+    const assessment = result?.assessment;
+    const recommendation = result?.recommendation;
 
     return (
   
@@ -108,7 +142,7 @@ export default function ResultPage() {
                 <div>
                   🌍 Country
                   <p className="font-bold text-slate-900">
-                    Vietnam
+                    {assessment?.country || "Not available"}
                   </p>
                 </div>
   
@@ -117,7 +151,7 @@ export default function ResultPage() {
                 <div>
                   🏠 Project Type
                   <p className="font-bold text-slate-900">
-                    Residential Home
+                    {assessment?.projectType || "Not available"}
                   </p>
                 </div>
   
@@ -126,7 +160,7 @@ export default function ResultPage() {
                 <div>
                   ⚡ Energy Need
                   <p className="font-bold text-slate-900">
-                    Medium Consumption
+                    {assessment?.consumption || "Not available"}
                   </p>
                 </div>
   
@@ -135,7 +169,7 @@ export default function ResultPage() {
                 <div>
                   💰 Electricity Cost
                   <p className="font-bold text-slate-900">
-                    Medium Bill
+                    {assessment?.electricityCost || "Not available"}
                   </p>
                 </div>
   
@@ -144,7 +178,7 @@ export default function ResultPage() {
                 <div>
                   ⚡ Power Outage
                   <p className="font-bold text-slate-900">
-                    Weekly
+                    {assessment?.outage || "Not available"}
                   </p>
                 </div>
   
@@ -153,7 +187,7 @@ export default function ResultPage() {
                 <div>
                   ☀️ Solar Space
                   <p className="font-bold text-slate-900">
-                    Available Roof Space
+                    {assessment?.solarSpace || "Not available"}
                   </p>
                 </div>
   
@@ -162,7 +196,7 @@ export default function ResultPage() {
                 <div>
                   🔋 Backup Requirement
                   <p className="font-bold text-slate-900">
-                    Medium Backup
+                    {assessment?.backupRequirement || "Not available"}
                   </p>
                 </div>
   
@@ -217,7 +251,7 @@ export default function ResultPage() {
                 <div>
                   ☀️ Solar PV
                   <p className="font-bold text-slate-900">
-                    8 kWp
+                    {recommendation?.solar || "Not available"}
                   </p>
                 </div>
   
@@ -227,7 +261,7 @@ export default function ResultPage() {
                 <div>
                   🔋 Battery Storage
                   <p className="font-bold text-slate-900">
-                    15 kWh LiFePO4
+                    {recommendation?.battery || "Not available"}
                   </p>
                 </div>
   
@@ -237,7 +271,7 @@ export default function ResultPage() {
                 <div>
                   ⚡ Hybrid Inverter
                   <p className="font-bold text-slate-900">
-                    8 kW
+                    {recommendation?.inverter || "Not available"}
                   </p>
                 </div>
   
@@ -247,7 +281,7 @@ export default function ResultPage() {
                 <div>
                   💰 Estimated Saving
                   <p className="font-bold text-slate-900">
-                    $150 / month
+                    {recommendation?.saving || "Not available"}
                   </p>
                 </div>
   
@@ -257,7 +291,7 @@ export default function ResultPage() {
                 <div>
                   📈 Payback Period
                   <p className="font-bold text-slate-900">
-                    5 - 7 Years
+                    {recommendation?.payback || "Not available"}
                   </p>
                 </div>
   

@@ -1,246 +1,138 @@
+export const ENERGY_RESULT_STORAGE_KEY = "aobec-energy-assessment-result";
+
+export type EnergyAssessmentData = {
+  country: string;
+  projectType: string;
+  consumption: string;
+  electricityCost: string;
+  outage: string;
+  solarSpace: string;
+  backupRequirement: string;
+};
+
+export type EnergyRecommendation = {
+  solar: string;
+  battery: string;
+  inverter: string;
+  saving: string;
+  payback: string;
+  generation: string;
+};
+
+type RecommendationInput = Omit<EnergyAssessmentData, "country">;
+
+const projectBase: Record<
+  string,
+  { solarKW: number; batteryKWh: number; inverterKW: number }
+> = {
+  "Residential Home": { solarKW: 8, batteryKWh: 15, inverterKW: 8 },
+  "Hotel & Resort": { solarKW: 30, batteryKWh: 60, inverterKW: 30 },
+  "Factory & Industrial": {
+    solarKW: 50,
+    batteryKWh: 100,
+    inverterKW: 50,
+  },
+  "Farm & Agriculture": { solarKW: 20, batteryKWh: 40, inverterKW: 20 },
+  "Commercial Building": { solarKW: 40, batteryKWh: 80, inverterKW: 40 },
+  "Mini Grid / Community": {
+    solarKW: 100,
+    batteryKWh: 200,
+    inverterKW: 100,
+  },
+};
+
+const consumptionFactors: Record<
+  string,
+  { solar: number; battery: number; inverter: number }
+> = {
+  "Low Consumption": { solar: 0.65, battery: 0.65, inverter: 0.65 },
+  "Medium Consumption": { solar: 1, battery: 1, inverter: 1 },
+  "High Consumption": { solar: 1.4, battery: 1.4, inverter: 1.35 },
+  "Need Backup Power": { solar: 0.85, battery: 1.35, inverter: 1 },
+};
+
+const electricityFactors: Record<
+  string,
+  { solar: number; tariff: number }
+> = {
+  "Low Bill": { solar: 0.85, tariff: 0.1 },
+  "Medium Bill": { solar: 1, tariff: 0.15 },
+  "High Bill": { solar: 1.15, tariff: 0.2 },
+  "Very High Bill": { solar: 1.3, tariff: 0.25 },
+};
+
+const outageBatteryFactors: Record<string, number> = {
+  Rarely: 0.8,
+  Monthly: 1.1,
+  Weekly: 1.4,
+  Daily: 1.8,
+};
+
+const solarSpaceFactors: Record<string, number> = {
+  "Available Roof Space": 1,
+  "Limited Space": 0.65,
+  "Ground Installation": 1.15,
+  "Not Sure": 0.9,
+};
+
+const backupFactors: Record<
+  string,
+  { battery: number; inverter: number }
+> = {
+  "Basic Backup": { battery: 0.85, inverter: 0.9 },
+  "Medium Backup": { battery: 1, inverter: 1.15 },
+  "Full Backup": { battery: 1.35, inverter: 1.4 },
+  "Critical Backup": { battery: 1.7, inverter: 1.75 },
+};
+
 export function getRecommendation({
+  projectType,
+  consumption,
+  electricityCost,
+  outage,
+  solarSpace,
+  backupRequirement,
+}: RecommendationInput): EnergyRecommendation {
+  const base = projectBase[projectType] ?? projectBase["Residential Home"];
+  const consumptionFactor =
+    consumptionFactors[consumption] ?? consumptionFactors["Medium Consumption"];
+  const electricityFactor =
+    electricityFactors[electricityCost] ??
+    electricityFactors["Medium Bill"];
+  const outageFactor = outageBatteryFactors[outage] ?? 1;
+  const spaceFactor = solarSpaceFactors[solarSpace] ?? 1;
+  const backupFactor =
+    backupFactors[backupRequirement] ?? backupFactors["Basic Backup"];
 
-    projectType,
-    consumption,
-    electricityCost,
-    outage,
-    solarSpace,
-    backupRequirement,
-  
-  }: any) {
-  
-  
-    let solarKW = 5;
-  
-    let batteryKWh = 10;
-  
-    let inverterKW = 5;
-  
-  
-  
-    let saving = 100;
+  const solarKW =
+    base.solarKW *
+    consumptionFactor.solar *
+    electricityFactor.solar *
+    spaceFactor;
+  const batteryKWh =
+    base.batteryKWh *
+    consumptionFactor.battery *
+    outageFactor *
+    backupFactor.battery;
+  const inverterKW =
+    base.inverterKW *
+    consumptionFactor.inverter *
+    backupFactor.inverter;
 
-    let payback = "6-8 Years";
-    
-    let generation = 0;
-  
-  
-  
-    // ==========================
-    // 1. 根据项目类型确定基础规模
-    // ==========================
-  
-  
-    if(projectType === "Residential Home"){
-  
-  
-      if(consumption === "Low Consumption"){
-  
-        solarKW = 3;
-        batteryKWh = 5;
-        inverterKW = 3;
-  
-      }
-  
-  
-      if(consumption === "Medium Consumption"){
-  
-        solarKW = 8;
-        batteryKWh = 15;
-        inverterKW = 8;
-  
-      }
-  
-  
-      if(consumption === "High Consumption"){
-  
-        solarKW = 12;
-        batteryKWh = 25;
-        inverterKW = 10;
-  
-      }
-  
-  
-    }
-  
-  
-  
-    // 工厂
-  
-    if(projectType === "Factory & Industrial"){
-  
-      solarKW = 50;
-      batteryKWh = 100;
-      inverterKW = 50;
-  
-    }
-  
-  
-  
-    // 酒店
-  
-    if(projectType === "Hotel & Resort"){
-  
-      solarKW = 30;
-      batteryKWh = 60;
-      inverterKW = 30;
-  
-    }
-  
-  
-  
-    // 农场
-  
-    if(projectType === "Farm & Agriculture"){
-  
-      solarKW = 20;
-      batteryKWh = 40;
-      inverterKW = 20;
-  
-    }
-  
-  
-  
-  
-  
-    // ==========================
-    // 2. 停电频率修正
-    // ==========================
-  
-  
-    if(outage === "Monthly"){
-  
-      batteryKWh = batteryKWh * 1.2;
-  
-    }
-  
-  
-  
-    if(outage === "Weekly"){
-  
-      batteryKWh = batteryKWh * 1.5;
-  
-    }
-  
-  
-  
-    if(outage === "Daily"){
-  
-      batteryKWh = batteryKWh * 2;
-  
-    }
-  
-  
-  
-  
-  
-    // ==========================
-    // 3. 备用电源需求修正
-    // ==========================
-  
-  
-    if(backupRequirement === "Medium Backup"){
-  
-      inverterKW = inverterKW * 1.2;
-  
-    }
-  
-  
-  
-    if(backupRequirement === "Full Backup"){
-  
-      inverterKW = inverterKW * 1.5;
-  
-    }
-  
-  
-  
-    if(backupRequirement === "Critical Backup"){
-  
-      inverterKW = inverterKW * 2;
-  
-    }
-  
-  
-  
-  
-  
-    // ==========================
-    // 4. 高电费增加光伏容量
-    // ==========================
-  
-  
-    if(
-      electricityCost === "High Bill" ||
-      electricityCost === "Very High Bill"
-    ){
-  
-      solarKW = solarKW * 1.3;
-  
-      saving = saving * 1.5;
-  
-      payback = "4-6 Years";
-  
-    }
-  
-  
-  
-    // ==========================
-    // 5. 输出格式
-    // ==========================
-  
-  
-    generation = solarKW * 1500;
+  const generation = solarKW * 1500;
+  const annualSaving =
+    generation * 0.75 * electricityFactor.tariff;
+  const monthlySaving = annualSaving / 12;
+  const estimatedInvestment = solarKW * 900 + batteryKWh * 300;
+  const paybackYears =
+    annualSaving > 0 ? estimatedInvestment / annualSaving : 0;
 
-
-saving = generation * 0.15 / 12;
-
-
-const investment = solarKW * 900;
-
-
-const annualSaving = saving * 12;
-
-
-if(annualSaving > 0){
-
-  const years = investment / annualSaving;
-
-  payback =
-    `${years.toFixed(1)} Years`;
-
-}
   return {
-  
-      solar:
-  
-        `${Math.round(solarKW)} kWp`,
-  
-  
-  
-      battery:
-  
-        `${Math.round(batteryKWh)} kWh LiFePO4`,
-  
-  
-  
-      inverter:
-  
-        `${Math.round(inverterKW)} kW`,
-  
-  
-  
-      saving:
-  
-        `$${Math.round(saving)}/month`,
-  
-  
-  
-      payback,
-      generation:
-      `${Math.round(generation)} kWh/year`,
-  
-    };
-  
-  
-  }
+    solar: `${Math.round(solarKW)} kWp`,
+    battery: `${Math.round(batteryKWh)} kWh LiFePO4`,
+    inverter: `${Math.round(inverterKW)} kW`,
+    saving: `$${Math.round(monthlySaving)}/month`,
+    payback: `${paybackYears.toFixed(1)} Years`,
+    generation: `${Math.round(generation)} kWh/year`,
+  };
+}

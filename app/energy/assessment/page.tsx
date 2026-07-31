@@ -30,7 +30,7 @@ export default function AssessmentPage() {
 
   const [solarSpace,setSolarSpace] = useState("");
 
-  const [storageNeed,setStorageNeed] = useState("");
+  const [backupRequirement,setBackupRequirement] = useState("");
 
 
 
@@ -161,7 +161,7 @@ setStep={setStep}
 
 <EnergyStep7
 
-setBackupRequirement={setStorageNeed}
+setBackupRequirement={setBackupRequirement}
 
 setStep={setStep}
 
@@ -190,7 +190,7 @@ outage={outage}
 
 solarSpace={solarSpace}
 
-storageNeed={storageNeed}
+backupRequirement={backupRequirement}
 
 />
 

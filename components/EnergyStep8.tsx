@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 
-import { getRecommendation } from "@/lib/energyRecommendation";
+import {
+  ENERGY_RESULT_STORAGE_KEY,
+  getRecommendation,
+} from "@/lib/energyRecommendation";
 
 
 export default function EnergyStep8({
@@ -140,19 +143,22 @@ ${backupRequirement}
 
 `
 Solar PV:
-{recommendation.solar}
+${recommendation.solar}
 
 Battery:
-{recommendation.battery}
+${recommendation.battery}
 
 Hybrid Inverter:
-{recommendation.inverter}
+${recommendation.inverter}
 
 Estimated Saving:
-$150/month
+${recommendation.saving}
 
 Payback:
-5-7 Years
+${recommendation.payback}
+
+Estimated Generation:
+${recommendation.generation}
 `
 
     );
@@ -185,6 +191,25 @@ Payback:
 
       if(result.success){
 
+        try {
+          window.sessionStorage.setItem(
+            ENERGY_RESULT_STORAGE_KEY,
+            JSON.stringify({
+              assessment: {
+                country,
+                projectType,
+                consumption,
+                electricityCost,
+                outage,
+                solarSpace,
+                backupRequirement,
+              },
+              recommendation,
+            }),
+          );
+        } catch {
+          // Continue to the result page if browser storage is unavailable.
+        }
 
         alert(
 

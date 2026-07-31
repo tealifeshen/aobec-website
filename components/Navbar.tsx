@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 const links = [
   { label: "Home", href: "/" },
   { label: "Solutions", href: "/solutions" },
-  { label: "Projects", href: "/projects" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Projects", href: "/solutions" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/energy/assessment" },
 ];
 
 export default function Navbar() {
@@ -57,7 +57,7 @@ export default function Navbar() {
             <span className="mx-2 text-white/20">|</span> VI
           </div>
           <a
-            href="/contact"
+            href="/energy/assessment"
             className="premium-button rounded-full px-6 py-3 text-sm font-bold text-white"
           >
             Get a Quote
@@ -91,7 +91,7 @@ export default function Navbar() {
             ))}
           </div>
           <a
-            href="/contact"
+            href="/energy/assessment"
             onClick={() => setOpen(false)}
             className="premium-button mt-4 block rounded-2xl px-5 py-3 text-center text-sm font-bold"
           >
