@@ -1,20 +1,30 @@
 const columns = [
   {
-    title: "Company",
-    links: ["About AOBEC", "Global Presence", "Projects", "Contact"],
+    title: "Products",
+    links: [
+      { label: "All Products", href: "/products" },
+      { label: "Energy Storage", href: "/products/energy-storage" },
+      { label: "Solar Lighting", href: "/products/solar-lighting" },
+      { label: "Solar Power", href: "/products/solar-power" },
+    ],
   },
   {
     title: "Solutions",
     links: [
-      "Energy Storage",
-      "Solar Lighting",
-      "Industrial Solutions",
-      "Global Supply Chain",
+      { label: "All Solutions", href: "/solutions" },
+      { label: "Energy Storage", href: "/products/energy-storage" },
+      { label: "Industrial Solutions", href: "/solutions" },
+      { label: "Global Supply Chain", href: "/solutions" },
     ],
   },
   {
-    title: "Support",
-    links: ["Technical Assessment", "Quotation", "Project Coordination", "After-sales"],
+    title: "Contact",
+    links: [
+      { label: "Energy Assessment", href: "/energy/assessment" },
+      { label: "Request a Quote", href: "/energy/assessment" },
+      { label: "Email AOBEC", href: "mailto:sales@aobec.com" },
+      { label: "WhatsApp", href: "https://wa.me/8613590908968" },
+    ],
   },
 ];
 
@@ -30,9 +40,24 @@ export default function Footer() {
               international projects.
             </p>
             <div className="mt-7 space-y-2 text-sm text-white/58">
-              <p>Email: sales@aobec.com</p>
+              <p>
+                Email:{" "}
+                <a className="transition hover:text-white" href="mailto:sales@aobec.com">
+                  sales@aobec.com
+                </a>
+              </p>
               <p>Website: www.aobec.com</p>
-              <p>WhatsApp: +86 135 9090 8968</p>
+              <p>
+                WhatsApp:{" "}
+                <a
+                  className="transition hover:text-white"
+                  href="https://wa.me/8613590908968"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  +86 135 9090 8968
+                </a>
+              </p>
             </div>
           </div>
 
@@ -45,11 +70,14 @@ export default function Footer() {
                 <div className="mt-5 flex flex-col gap-3">
                   {column.links.map((link) => (
                     <a
-                      key={link}
-                      href="#"
+                      key={link.label}
+                      href={link.href}
+                      {...(link.href.startsWith("https://")
+                        ? { target: "_blank", rel: "noreferrer" }
+                        : {})}
                       className="text-sm text-white/45 transition hover:text-white"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   ))}
                 </div>
