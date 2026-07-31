@@ -1,20 +1,32 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const links = [
   { label: "Home", href: "/" },
   { label: "Solutions", href: "/solutions" },
   { label: "Products", href: "/products" },
-  { label: "Projects", href: "/solutions" },
-  { label: "About", href: "/#about" },
+  { label: "Projects", href: "/projects" },
+  { label: "About", href: "/about" },
   { label: "Energy Assessment", href: "/energy/assessment" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/#contact", activePath: "/contact" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const isActiveLink = (link: (typeof links)[number]) => {
+    const activePath = "activePath" in link ? link.activePath : link.href;
+
+    if (activePath === "/") {
+      return pathname === "/";
+    }
+
+    return pathname === activePath || pathname.startsWith(`${activePath}/`);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -41,16 +53,29 @@ export default function Navbar() {
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="relative py-2 text-sm font-semibold text-white/72 transition hover:text-white"
-            >
-              {link.label}
-              <span className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-[#f28b22] transition-transform duration-300 hover:scale-x-100" />
-            </a>
-          ))}
+          {links.map((link) => {
+            const isActive = isActiveLink(link);
+
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                aria-current={isActive ? "page" : undefined}
+                className={`group relative py-2 text-sm font-semibold transition ${
+                  isActive
+                    ? "text-[#f28b22]"
+                    : "text-white/72 hover:text-white"
+                }`}
+              >
+                {link.label}
+                <span
+                  className={`absolute inset-x-0 -bottom-0.5 h-0.5 origin-left bg-[#f28b22] transition-transform duration-300 ${
+                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+                />
+              </a>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-5 lg:flex">
@@ -81,16 +106,26 @@ export default function Navbar() {
       {open && (
         <div className="site-container mt-4 rounded-3xl border border-white/10 bg-[#081a2a]/96 p-5 shadow-2xl backdrop-blur-2xl lg:hidden">
           <div className="flex flex-col gap-1">
-            {links.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="rounded-2xl px-4 py-3 text-sm font-semibold text-white/80 hover:bg-white/8"
-              >
-                {link.label}
-              </a>
-            ))}
+            {links.map((link) => {
+              const isActive = isActiveLink(link);
+
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  aria-current={isActive ? "page" : undefined}
+                  onClick={() => setOpen(false)}
+                  className={`relative rounded-2xl px-4 py-3 text-sm font-semibold transition hover:bg-white/8 ${
+                    isActive ? "text-[#f28b22]" : "text-white/80"
+                  }`}
+                >
+                  {link.label}
+                  {isActive && (
+                    <span className="absolute bottom-1.5 left-4 right-4 h-0.5 rounded-full bg-[#f28b22]" />
+                  )}
+                </a>
+              );
+            })}
           </div>
           <a
             href="/energy/assessment"
