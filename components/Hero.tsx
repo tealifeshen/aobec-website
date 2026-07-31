@@ -11,11 +11,26 @@ export default function Hero() {
     <section
       id="home"
       className="hero-premium relative flex min-h-screen items-center overflow-hidden pt-28"
-      style={{
-        backgroundImage:
-          'linear-gradient(90deg, rgba(3,12,21,.88) 0%, rgba(3,12,21,.74) 36%, rgba(3,12,21,.22) 70%, rgba(3,12,21,.18) 100%), linear-gradient(180deg, rgba(3,12,21,.12) 0%, rgba(3,12,21,.12) 56%, rgba(3,12,21,.88) 100%), url("/images/hero-aobec-energy.jpg")',
-      }}
     >
+      <style>{`
+        #home.hero-premium {
+          background-image:
+            linear-gradient(90deg, rgba(3,12,21,.88) 0%, rgba(3,12,21,.74) 36%, rgba(3,12,21,.22) 70%, rgba(3,12,21,.18) 100%),
+            linear-gradient(180deg, rgba(3,12,21,.12) 0%, rgba(3,12,21,.12) 56%, rgba(3,12,21,.88) 100%),
+            url("/images/hero-aobec-energy-mobile.jpg");
+          background-position: center center;
+        }
+
+        @media (min-width: 641px) {
+          #home.hero-premium {
+            background-image:
+              linear-gradient(90deg, rgba(3,12,21,.88) 0%, rgba(3,12,21,.74) 36%, rgba(3,12,21,.22) 70%, rgba(3,12,21,.18) 100%),
+              linear-gradient(180deg, rgba(3,12,21,.12) 0%, rgba(3,12,21,.12) 56%, rgba(3,12,21,.88) 100%),
+              url("/images/hero-aobec-energy.jpg");
+            background-position: center right;
+          }
+        }
+      `}</style>
       <div className="hero-noise absolute inset-0 opacity-[0.18]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_31%,rgba(242,139,34,0.18),transparent_22%)]" />
       <div className="absolute -left-40 top-28 h-[420px] w-[420px] rounded-full bg-[#195a80]/15 blur-[110px]" />
