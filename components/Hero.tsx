@@ -43,68 +43,18 @@ export default function Hero() {
 
           <div className="hero-reveal hero-delay-5 mt-10 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#contact"
-              className="premium-button inline-flex min-h-14 items-center justify-center rounded-full px-8 text-sm font-bold text-white"
-            >
-              Get a Quote
-              <span className="ml-3 text-lg">↗</span>
-            </a>
-            <a
-              href="#solutions"
+              href="/solutions"
               className="glass-button inline-flex min-h-14 items-center justify-center rounded-full px-8 text-sm font-bold text-white"
             >
               Explore Solutions
             </a>
-            <div className="relative">
-
-<span
-  className="
-    absolute
-    -top-3
-    left-1/2
-    -translate-x-1/2
-    bg-blue-600
-    text-white
-    text-xs
-    px-3
-    py-1
-    rounded-full
-    font-bold
-    shadow-lg
-  "
->
-  NEW
-</span>
-
-<a
-  href="/energy/assessment"
-  className="
-    inline-flex
-    items-center
-    justify-center
-    rounded-full
-    border
-    border-blue-500
-    px-10
-    py-5
-    text-white
-    text-2xl
-    font-bold
-    bg-[#111827]
-    shadow-[0_0_25px_rgba(59,130,246,0.6)]
-    hover:scale-105
-    transition
-  "
->
-  ✨ AI Solar Assessment
-  <span className="ml-4 text-2xl">→</span>
-</a>
-
-<p className="mt-4 text-center text-sky-400 text-sm">
-  AI-powered. Free. Get your personalized solar + storage solution.
-</p>
-
-</div>
+            <a
+              href="/energy/assessment"
+              className="premium-button inline-flex min-h-14 items-center justify-center rounded-full px-8 text-sm font-bold text-white"
+            >
+              Get Energy Assessment
+              <span className="ml-3 text-lg">↗</span>
+            </a>
           </div>
         </div>
 

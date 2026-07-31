@@ -109,6 +109,37 @@ return(
     </div>
   </div>
 </section>
+<section className="bg-[#071523] pb-20 text-white md:pb-28">
+  <div className="site-container">
+    <div className="relative overflow-hidden rounded-[34px] border border-white/10 bg-[#0a1d2c] px-7 py-10 md:px-12 md:py-12">
+      <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#f28b22]/18 blur-[80px]" />
+      <div className="absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-[#2876a1]/16 blur-[90px]" />
+
+      <div className="relative z-10 flex flex-col justify-between gap-8 lg:flex-row lg:items-center">
+        <div>
+          <p className="text-xs font-black uppercase tracking-[0.22em] text-[#f28b22]">
+            Smart Energy Assessment
+          </p>
+          <h2 className="mt-4 text-3xl font-black tracking-[-0.035em] md:text-5xl">
+            Need the Right Energy Solution?
+          </h2>
+          <p className="mt-5 max-w-3xl text-sm leading-7 text-white/55 md:text-base">
+            Get a personalized solar and storage recommendation based on your
+            project requirements, electricity usage and backup needs.
+          </p>
+        </div>
+
+        <Link
+          href="/energy/assessment"
+          className="premium-button inline-flex min-h-14 shrink-0 items-center justify-center rounded-full px-8 text-sm font-bold text-white"
+        >
+          Start Energy Assessment
+          <span className="ml-3 text-lg">↗</span>
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
 <section className="relative overflow-hidden bg-[#071523] pb-20 text-white md:pb-28">
   <div className="absolute -right-24 top-0 h-96 w-96 rounded-full bg-[#f28b22]/8 blur-[110px]" />
   <div className="site-container relative z-10">
