@@ -73,15 +73,15 @@ export default function Navbar() {
                 aria-current={isActive ? "page" : undefined}
                 className={`group relative py-2 text-sm font-semibold transition ${
                   isActive
-                    ? "text-[#f28b22]"
+                    ? "text-orange-500 hover:text-orange-500"
                     : isHome
-                      ? "text-white/72 hover:text-white"
-                      : "text-gray-900/75 hover:text-gray-950"
+                      ? "text-white hover:text-orange-500"
+                      : "text-slate-800 hover:text-orange-500"
                 }`}
               >
                 {link.label}
                 <span
-                  className={`absolute inset-x-0 -bottom-0.5 h-0.5 origin-left bg-[#f28b22] transition-transform duration-300 ${
+                  className={`absolute inset-x-0 -bottom-0.5 h-0.5 origin-left bg-orange-500 transition-transform duration-300 ${
                     isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                   }`}
                 />
