@@ -17,7 +17,7 @@ export default function Hero() {
           background-image:
             linear-gradient(90deg, rgba(3,12,21,.88) 0%, rgba(3,12,21,.74) 36%, rgba(3,12,21,.22) 70%, rgba(3,12,21,.18) 100%),
             linear-gradient(180deg, rgba(3,12,21,.12) 0%, rgba(3,12,21,.12) 56%, rgba(3,12,21,.88) 100%),
-            url("/images/hero-aobec-energy-mobile.jpg");
+            url("/images/hero-aobec-energy-mobile-v2.jpg");
           background-position: center center;
         }
 
@@ -26,7 +26,7 @@ export default function Hero() {
             background-image:
               linear-gradient(90deg, rgba(3,12,21,.88) 0%, rgba(3,12,21,.74) 36%, rgba(3,12,21,.22) 70%, rgba(3,12,21,.18) 100%),
               linear-gradient(180deg, rgba(3,12,21,.12) 0%, rgba(3,12,21,.12) 56%, rgba(3,12,21,.88) 100%),
-              url("/images/hero-aobec-energy.jpg");
+              url("/images/hero-aobec-energy-v2.jpg");
             background-position: center right;
           }
         }
