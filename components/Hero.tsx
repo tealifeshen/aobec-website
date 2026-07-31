@@ -48,15 +48,21 @@ export default function Hero() {
             >
               Explore Solutions
             </a>
-            <a
-              href="/energy/assessment"
-              className="group inline-flex min-h-14 items-center justify-center rounded-full border border-[#55bdff]/35 bg-gradient-to-r from-[#0066FF] to-[#00A8FF] px-8 text-sm font-bold text-white shadow-[0_12px_34px_rgba(0,102,255,0.3)] ring-1 ring-white/10 transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_44px_rgba(0,168,255,0.44)]"
-            >
-              AI Assessment
-              <span className="ml-3 text-lg transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                ↗
+            <div className="relative w-fit max-w-full">
+              <span className="absolute -right-1 -top-3 z-10 rounded-md bg-[#007ee6] px-2.5 py-1 text-[9px] font-black tracking-[0.16em] text-white shadow-[0_6px_18px_rgba(0,126,230,0.45)]">
+                NEW
               </span>
-            </a>
+              <a
+                href="/energy/assessment"
+                className="group inline-flex h-14 max-w-full items-center justify-center rounded-full border border-[rgba(0,168,255,0.9)] bg-[linear-gradient(135deg,rgba(10,25,55,0.95),rgba(5,15,35,0.95))] px-7 text-sm font-bold text-white shadow-[0_0_20px_rgba(0,168,255,0.45),0_0_40px_rgba(0,102,255,0.25)] backdrop-blur-xl transition duration-300 hover:-translate-y-[3px] hover:border-[#62caff] hover:shadow-[0_0_26px_rgba(0,168,255,0.62),0_0_52px_rgba(0,102,255,0.38)] sm:px-9"
+              >
+                <span aria-hidden="true">✨</span>
+                <span className="ml-2">AI Energy Assessment</span>
+                <span className="ml-3 text-lg transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  →
+                </span>
+              </a>
+            </div>
           </div>
         </div>
 
