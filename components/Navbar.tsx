@@ -17,6 +17,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const isHome = pathname === "/";
 
   const isActiveLink = (link: (typeof links)[number]) => {
     const activePath = "activePath" in link ? link.activePath : link.href;
@@ -38,17 +39,26 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-500 ${
-        scrolled
-          ? "border-white/10 bg-[#06131f]/92 py-3 shadow-2xl backdrop-blur-2xl"
-          : "border-transparent bg-transparent py-5"
+        isHome
+          ? scrolled
+            ? "border-white/10 bg-[#06131f]/92 py-3 shadow-2xl backdrop-blur-2xl"
+            : "border-transparent bg-transparent py-5"
+          : "border-gray-200/80 bg-white/95 py-3 shadow-sm backdrop-blur-2xl"
       }`}
     >
       <div className="site-container flex items-center justify-between">
-      <a href="/" className="group flex items-center gap-3">
+        <a
+          href="/"
+          className={`group flex items-center gap-3 ${
+            isHome ? "" : "rounded-xl bg-[#06131f] px-3 py-1.5 shadow-sm"
+          }`}
+        >
           <img
             src="/aobec-logo.svg"
             alt="AOBEC"
-            className="h-11 w-auto transition duration-300 group-hover:scale-[1.02]"
+            className={`w-auto transition duration-300 group-hover:scale-[1.02] ${
+              isHome ? "h-11" : "h-9"
+            }`}
           />
         </a>
 
@@ -64,7 +74,9 @@ export default function Navbar() {
                 className={`group relative py-2 text-sm font-semibold transition ${
                   isActive
                     ? "text-[#f28b22]"
-                    : "text-white/72 hover:text-white"
+                    : isHome
+                      ? "text-white/72 hover:text-white"
+                      : "text-gray-900/75 hover:text-gray-950"
                 }`}
               >
                 {link.label}
@@ -79,9 +91,13 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-5 lg:flex">
-          <div className="text-xs font-semibold text-white/58">
-            EN <span className="mx-2 text-white/20">|</span> 中文
-            <span className="mx-2 text-white/20">|</span> VI
+          <div
+            className={`text-xs font-semibold ${
+              isHome ? "text-white/58" : "text-gray-600"
+            }`}
+          >
+            EN <span className={isHome ? "mx-2 text-white/20" : "mx-2 text-gray-300"}>|</span> 中文
+            <span className={isHome ? "mx-2 text-white/20" : "mx-2 text-gray-300"}>|</span> VI
           </div>
           <a
             href="/energy/assessment"
@@ -95,16 +111,26 @@ export default function Navbar() {
           type="button"
           aria-label="Open menu"
           onClick={() => setOpen((v) => !v)}
-          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full border border-white/15 bg-white/8 backdrop-blur lg:hidden"
+          className={`flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full border backdrop-blur lg:hidden ${
+            isHome
+              ? "border-white/15 bg-white/8"
+              : "border-gray-200 bg-gray-100/80"
+          }`}
         >
-          <span className={`h-0.5 w-5 bg-white transition ${open ? "translate-y-2 rotate-45" : ""}`} />
-          <span className={`h-0.5 w-5 bg-white transition ${open ? "opacity-0" : ""}`} />
-          <span className={`h-0.5 w-5 bg-white transition ${open ? "-translate-y-2 -rotate-45" : ""}`} />
+          <span className={`h-0.5 w-5 transition ${isHome ? "bg-white" : "bg-gray-900"} ${open ? "translate-y-2 rotate-45" : ""}`} />
+          <span className={`h-0.5 w-5 transition ${isHome ? "bg-white" : "bg-gray-900"} ${open ? "opacity-0" : ""}`} />
+          <span className={`h-0.5 w-5 transition ${isHome ? "bg-white" : "bg-gray-900"} ${open ? "-translate-y-2 -rotate-45" : ""}`} />
         </button>
       </div>
 
       {open && (
-        <div className="site-container mt-4 rounded-3xl border border-white/10 bg-[#081a2a]/96 p-5 shadow-2xl backdrop-blur-2xl lg:hidden">
+        <div
+          className={`site-container mt-4 rounded-3xl border p-5 shadow-2xl backdrop-blur-2xl lg:hidden ${
+            isHome
+              ? "border-white/10 bg-[#081a2a]/96"
+              : "border-gray-200 bg-white/98"
+          }`}
+        >
           <div className="flex flex-col gap-1">
             {links.map((link) => {
               const isActive = isActiveLink(link);
@@ -115,8 +141,12 @@ export default function Navbar() {
                   href={link.href}
                   aria-current={isActive ? "page" : undefined}
                   onClick={() => setOpen(false)}
-                  className={`relative rounded-2xl px-4 py-3 text-sm font-semibold transition hover:bg-white/8 ${
-                    isActive ? "text-[#f28b22]" : "text-white/80"
+                  className={`relative rounded-2xl px-4 py-3 text-sm font-semibold transition ${
+                    isActive
+                      ? "text-[#f28b22]"
+                      : isHome
+                        ? "text-white/80 hover:bg-white/8"
+                        : "text-gray-900/80 hover:bg-gray-100"
                   }`}
                 >
                   {link.label}
