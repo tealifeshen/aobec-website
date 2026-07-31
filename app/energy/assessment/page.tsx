@@ -38,12 +38,16 @@ export default function AssessmentPage() {
 
     <main className="
     min-h-screen
-    bg-slate-100
     flex
     items-center
     justify-center
     p-8
-    ">
+    "
+    style={{
+      background:
+        "radial-gradient(circle at 15% 18%, rgba(59, 130, 246, 0.10) 0%, transparent 32%), radial-gradient(circle at 85% 82%, rgba(14, 165, 233, 0.08) 0%, transparent 30%), linear-gradient(180deg, #F5F9FF 0%, #EEF4FA 100%)",
+    }}
+    >
 
 
       <div className="
