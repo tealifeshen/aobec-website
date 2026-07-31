@@ -50,10 +50,15 @@ export default function Hero() {
             </a>
             <a
               href="/energy/assessment"
-              className="premium-button inline-flex min-h-14 items-center justify-center rounded-full px-8 text-sm font-bold text-white"
+              className="premium-button group inline-flex min-h-14 items-center justify-center rounded-full border border-[#ffb768]/30 px-8 text-sm font-bold text-white ring-1 ring-white/10"
             >
-              Get Energy Assessment
-              <span className="ml-3 text-lg">↗</span>
+              <span className="mr-2.5 text-base" aria-hidden="true">
+                ⚡
+              </span>
+              Start AI Energy Assessment
+              <span className="ml-3 text-lg transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                ↗
+              </span>
             </a>
           </div>
         </div>
