@@ -50,12 +50,9 @@ export default function Hero() {
             </a>
             <a
               href="/energy/assessment"
-              className="premium-button group inline-flex min-h-14 items-center justify-center rounded-full border border-[#ffb768]/30 px-8 text-sm font-bold text-white ring-1 ring-white/10"
+              className="group inline-flex min-h-14 items-center justify-center rounded-full border border-[#55bdff]/35 bg-gradient-to-r from-[#0066FF] to-[#00A8FF] px-8 text-sm font-bold text-white shadow-[0_12px_34px_rgba(0,102,255,0.3)] ring-1 ring-white/10 transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_44px_rgba(0,168,255,0.44)]"
             >
-              <span className="mr-2.5 text-base" aria-hidden="true">
-                ⚡
-              </span>
-              Start AI Energy Assessment
+              AI Assessment
               <span className="ml-3 text-lg transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                 ↗
               </span>
