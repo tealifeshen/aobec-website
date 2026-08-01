@@ -34,14 +34,14 @@ export default function Hero() {
             Global Energy Solutions
           </div>
 
-          <h1 className="hero-reveal hero-delay-2 max-w-5xl text-[52px] font-black leading-[0.96] tracking-[-0.05em] text-white sm:text-6xl md:text-7xl lg:text-[92px]">
+          <h1 className="hero-reveal hero-delay-2 max-w-5xl text-[42px] font-black leading-[0.98] tracking-[-0.05em] text-white sm:text-6xl sm:leading-[0.96] md:text-7xl lg:text-[92px]">
             Powering Global
             <span className="block bg-gradient-to-r from-white via-white to-white/56 bg-clip-text text-transparent">
               Energy Transformation
             </span>
           </h1>
 
-          <p className="hero-reveal hero-delay-3 mt-8 max-w-xl text-base leading-8 text-[#d8e2e9] sm:text-lg">
+          <p className="hero-reveal hero-delay-3 mt-8 max-w-xl text-sm leading-7 text-[#d8e2e9] sm:text-lg sm:leading-8">
             Empowering a cleaner world through
             <br />
             smart energy innovation.
@@ -50,17 +50,17 @@ export default function Hero() {
           <div className="hero-reveal hero-delay-5 mt-10 flex flex-col gap-3 sm:flex-row">
             <a
               href="/solutions"
-              className="glass-button inline-flex min-h-14 items-center justify-center rounded-full px-8 text-sm font-bold text-white"
+              className="glass-button inline-flex min-h-14 w-full items-center justify-center rounded-full px-8 text-sm font-bold text-white sm:w-auto"
             >
               Explore Solutions
             </a>
-            <div className="relative w-fit max-w-full">
-              <span className="absolute -right-1 -top-3 z-10 rounded-md bg-[#007ee6] px-2.5 py-1 text-[9px] font-black tracking-[0.16em] text-white shadow-[0_6px_18px_rgba(0,126,230,0.45)]">
+            <div className="relative w-full max-w-full sm:w-fit">
+              <span className="absolute right-3 -top-2 z-10 rounded-md bg-[#007ee6] px-2 py-0.5 text-[8px] font-black tracking-[0.12em] text-white shadow-[0_6px_18px_rgba(0,126,230,0.45)] sm:-right-1 sm:-top-3 sm:px-2.5 sm:py-1 sm:text-[9px] sm:tracking-[0.16em]">
                 NEW
               </span>
               <a
                 href="/energy/assessment"
-                className="group inline-flex h-14 max-w-full items-center justify-center rounded-full border border-[rgba(0,168,255,0.9)] bg-[linear-gradient(135deg,rgba(10,25,55,0.95),rgba(5,15,35,0.95))] px-7 text-sm font-bold text-white shadow-[0_0_20px_rgba(0,168,255,0.45),0_0_40px_rgba(0,102,255,0.25)] backdrop-blur-xl transition duration-300 hover:-translate-y-[3px] hover:border-[#62caff] hover:shadow-[0_0_26px_rgba(0,168,255,0.62),0_0_52px_rgba(0,102,255,0.38)] sm:px-9"
+                className="group inline-flex h-14 w-full max-w-full items-center justify-center rounded-full border border-[rgba(0,168,255,0.9)] bg-[linear-gradient(135deg,rgba(10,25,55,0.95),rgba(5,15,35,0.95))] px-7 text-sm font-bold text-white shadow-[0_0_20px_rgba(0,168,255,0.45),0_0_40px_rgba(0,102,255,0.25)] backdrop-blur-xl transition duration-300 hover:-translate-y-[3px] hover:border-[#62caff] hover:shadow-[0_0_26px_rgba(0,168,255,0.62),0_0_52px_rgba(0,102,255,0.38)] sm:w-auto sm:px-9"
               >
                 <span aria-hidden="true">✨</span>
                 <span className="ml-2">AI Energy Assessment</span>
