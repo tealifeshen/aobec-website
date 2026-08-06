@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import Hero from "@/components/Hero";
 import ContactCTA from "@/components/ContactCTA";
+import FeaturedProject from "@/components/FeaturedProject";
 
 const productOverview = [
   {
@@ -172,6 +173,7 @@ return(
     </div>
   </div>
 </section>
+<FeaturedProject/>
 <ContactCTA/>
 </main>
 )
